@@ -1,0 +1,171 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Scripts/LooseScreen.gd" type="Script" id=1]
+[ext_resource path="res://SharyTheFairy/files/png/gui/plashka.png" type="Texture" id=2]
+[ext_resource path="res://SharyTheFairy/files/png/gui/circle_green.png" type="Texture" id=3]
+[ext_resource path="res://SharyTheFairy/files/png/gui/Group_12.png" type="Texture" id=4]
+[ext_resource path="res://SharyTheFairy/files/png/gui/r1.png" type="Texture" id=5]
+[ext_resource path="res://SharyTheFairy/files/png/gui/replay.png" type="Texture" id=6]
+[ext_resource path="res://SharyTheFairy/files/png/gui/paused.png" type="Texture" id=7]
+[ext_resource path="res://SharyTheFairy/files/png/gui/star_level_2.png" type="Texture" id=8]
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "Hide"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 85, 520 ), Vector2( 85, 1330 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Show"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 85, -290 ), Vector2( 85, 520 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[node name="LooseScreen" type="Node2D"]
+
+process/pause_mode = 2
+script/script = ExtResource( 1 )
+
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 800.0
+margin/bottom = 1280.0
+color = Color( 1, 1, 1, 0.470588 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 85, -290 )
+transform/scale = Vector2( 0.5, 0.13 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="HomeButton" type="TouchScreenButton" parent="Sprite"]
+
+editor/display_folded = true
+transform/pos = Vector2( -29.4657, -311.657 )
+transform/scale = Vector2( 1, 3.85 )
+normal = ExtResource( 3 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Sprite" type="Sprite" parent="Sprite/HomeButton"]
+
+transform/pos = Vector2( 105.585, 107.933 )
+texture = ExtResource( 4 )
+
+[node name="ReplayButton" type="TouchScreenButton" parent="Sprite"]
+
+editor/display_folded = true
+transform/pos = Vector2( 450, 1025 )
+transform/scale = Vector2( 1, 3.85 )
+normal = ExtResource( 5 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Sprite" type="Sprite" parent="Sprite/ReplayButton"]
+
+transform/pos = Vector2( 185, 90 )
+texture = ExtResource( 6 )
+
+[node name="LooseText" type="Sprite" parent="Sprite"]
+
+visibility/visible = false
+transform/pos = Vector2( 650, 538.462 )
+transform/scale = Vector2( 2, 7.69231 )
+texture = ExtResource( 7 )
+
+[node name="LooseStar1" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 280, 780 )
+transform/scale = Vector2( 0.7, 2.695 )
+texture = ExtResource( 8 )
+
+[node name="LooseStar2" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 628, 530 )
+transform/scale = Vector2( 0.7, 2.695 )
+texture = ExtResource( 8 )
+
+[node name="LooseStar3" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 980, 780 )
+transform/scale = Vector2( 0.7, 2.695 )
+texture = ExtResource( 8 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Hide = SubResource( 2 )
+anims/Show = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Show"
+
+[connection signal="pressed" from="Sprite/HomeButton" to="." method="_on_HomeButton_pressed"]
+
+[connection signal="pressed" from="Sprite/ReplayButton" to="." method="_on_ReplayButton_pressed"]
+
+

@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://SharyTheFairy/files/png/splash_screen/map.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/LevelChoose.tscn" type="PackedScene" id=2]
+
+[node name="MainScreen" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="Level1" parent="Levels" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 180.135, 1078.72 )
+level = 1
+
+[node name="Level2" parent="Levels" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 467.586, 1007.62 )
+level = 2
+
+[node name="Level3" parent="Levels" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 677.764, 781.993 )
+level = 3
+
+[node name="Level4" parent="Levels" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 381.041, 584.177 )
+level = 4
+
+[node name="Level5" parent="Levels" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 677.764, 432.725 )
+level = 5
+
+[node name="Level6" parent="Levels" instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 569.584, 166.91 )
+level = 6
+
+

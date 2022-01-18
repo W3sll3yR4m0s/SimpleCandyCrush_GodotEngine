@@ -1,0 +1,197 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://Scripts/WinScreen.gd" type="Script" id=1]
+[ext_resource path="res://SharyTheFairy/files/png/gui/plashka.png" type="Texture" id=2]
+[ext_resource path="res://SharyTheFairy/files/png/gui/you_win.png" type="Texture" id=3]
+[ext_resource path="res://SharyTheFairy/files/png/gui/circle_green.png" type="Texture" id=4]
+[ext_resource path="res://SharyTheFairy/files/png/gui/Group_12.png" type="Texture" id=5]
+[ext_resource path="res://SharyTheFairy/files/png/gui/r1.png" type="Texture" id=6]
+[ext_resource path="res://SharyTheFairy/files/png/gui/replay.png" type="Texture" id=7]
+[ext_resource path="res://SharyTheFairy/files/png/gui/g4.png" type="Texture" id=8]
+[ext_resource path="res://SharyTheFairy/files/png/gui/next.png" type="Texture" id=9]
+[ext_resource path="res://SharyTheFairy/files/png/gui/star_level_1.png" type="Texture" id=10]
+[ext_resource path="res://SharyTheFairy/files/png/gui/star_level_2.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "Hide"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 85, 270 ), Vector2( 85, 1330 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "Show"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 85, -770 ), Vector2( 85, 270 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:transform/rot")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0 ]
+}
+
+[node name="WinScreen" type="Node2D"]
+
+process/pause_mode = 2
+script/script = ExtResource( 1 )
+starOn = "res://SharyTheFairy/files/png/gui/star_level_1.png"
+
+[node name="ColorFrame" type="ColorFrame" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 800.0
+margin/bottom = 1280.0
+color = Color( 1, 1, 1, 0.470588 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 85, -770 )
+transform/scale = Vector2( 0.5, 0.39 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="WinText" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 630, 256.635 )
+transform/scale = Vector2( 1, 1.28318 )
+texture = ExtResource( 3 )
+
+[node name="HomeButton" type="TouchScreenButton" parent="Sprite"]
+
+editor/display_folded = true
+transform/pos = Vector2( -22, -90 )
+transform/scale = Vector2( 1, 1.28 )
+normal = ExtResource( 4 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Sprite" type="Sprite" parent="Sprite/HomeButton"]
+
+transform/pos = Vector2( 108.3, 108.473 )
+texture = ExtResource( 5 )
+
+[node name="ReplayButton" type="TouchScreenButton" parent="Sprite"]
+
+editor/display_folded = true
+transform/pos = Vector2( 180, 1340 )
+transform/scale = Vector2( 1, 1.28 )
+normal = ExtResource( 6 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Sprite" type="Sprite" parent="Sprite/ReplayButton"]
+
+transform/pos = Vector2( 185, 90 )
+texture = ExtResource( 7 )
+
+[node name="NextButton" type="TouchScreenButton" parent="Sprite"]
+
+editor/display_folded = true
+transform/pos = Vector2( 720, 1340 )
+transform/scale = Vector2( 1, 1.28 )
+normal = ExtResource( 8 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+
+[node name="Sprite" type="Sprite" parent="Sprite/NextButton"]
+
+transform/pos = Vector2( 185, 90 )
+texture = ExtResource( 9 )
+
+[node name="Star1" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 290, 960 )
+transform/scale = Vector2( 1, 1.28 )
+texture = ExtResource( 10 )
+
+[node name="Star2" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 640, 640 )
+transform/scale = Vector2( 1, 1.28 )
+texture = ExtResource( 11 )
+
+[node name="Star3" type="Sprite" parent="Sprite"]
+
+transform/pos = Vector2( 993.234, 960 )
+transform/scale = Vector2( 1, 1.28 )
+texture = ExtResource( 11 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/Hide = SubResource( 1 )
+anims/Show = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "Show"
+
+[connection signal="pressed" from="Sprite/HomeButton" to="." method="_on_HomeButton_pressed"]
+
+[connection signal="pressed" from="Sprite/ReplayButton" to="." method="_on_ReplayButton_pressed"]
+
+[connection signal="pressed" from="Sprite/NextButton" to="." method="_on_NextButton_pressed"]
+
+
